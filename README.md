@@ -6,17 +6,15 @@ cd demo
 yarn add async @types/async
 ```
 
-Modify `App.tsx`.
+Modify [src/App.tsx](./src/App.tsx).
 
 # Expected behaviour
 
 Expected console output:
 
 ```
-Waiting on a promise!
-Done waiting!
-Waiting on a promise!
-Done waiting!
+Doing something...
+Doing something...
 All promises done.
 ```
 
@@ -42,6 +40,5 @@ Go to http://localhost:5000, it will be stuck **Waiting...**
 Actual console output:
 
 ```
-Waiting on a promise!
-Done waiting!
+Doing something...
 ```

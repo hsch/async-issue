@@ -1,29 +1,19 @@
 import React from 'react';
 import './App.css';
-import {eachSeries, forEachSeries} from 'async';
-
-interface Props {
-}
+import {eachSeries} from 'async';
 
 interface State {
     ready?: true
 }
 
-export default class App extends React.PureComponent<Props, State> {
+export default class App extends React.PureComponent<any, State> {
     
     state: State = {
     };
     
     async componentDidMount() {
-        const provider = {
-            promise: async () => Promise.resolve()
-        };
-        await eachSeries([provider, provider], async (provider) => {
-            console.info('Waiting on a promise!');
-            await provider.promise();
-            console.info('Done waiting!');
-        });
-        console.info('All promises done.');
+        await eachSeries([1, 2], async () => console.info('Doing something...'));
+        console.info('All done.');
         this.setState({ready: true})
     }
 
