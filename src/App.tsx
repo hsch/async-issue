@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {forEachSeries} from 'async';
+import {eachSeries, forEachSeries} from 'async';
 
 interface Props {
 }
@@ -16,11 +16,14 @@ export default class App extends React.PureComponent<Props, State> {
     
     async componentDidMount() {
         const provider = {
-            promise: async () => {
-                return Promise.resolve();
-            }
+            promise: async () => Promise.resolve()
         };
-        await forEachSeries([provider, provider], async (provider) => await provider.promise())
+        await eachSeries([provider, provider], async (provider) => {
+            console.info('Waiting on a promise!');
+            await provider.promise();
+            console.info('Done waiting!');
+        });
+        console.info('All promises done.');
         this.setState({ready: true})
     }
 
