@@ -16,7 +16,7 @@ yarn start
 
 Go to http://localhost:3000, it will show **Ready!**
 
-# It fails on
+# It is getting stuck in the production build
 
 ```bash
 yarn global add serve
